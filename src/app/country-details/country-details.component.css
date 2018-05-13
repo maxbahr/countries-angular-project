@@ -1,0 +1,13 @@
+img#flag {
+    height: 50px;
+    width: 90px;
+}
+
+img#borderflag {
+    height: 10px;
+    width: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}

@@ -1,0 +1,10 @@
+<div *ngIf="countries === null">Loading...</div>
+
+<div *ngIf="countries !== null">
+  <ul>
+    <li *ngFor="let country of countries; let i = index" (click)="goToDetails(country.alpha3Code)" [title]="country.alpha3Code">
+      <img [src]="country.flag" >
+      <span >{{country.name}}</span>
+    </li>
+  </ul>
+</div>
