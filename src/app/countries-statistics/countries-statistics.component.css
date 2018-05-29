@@ -20,8 +20,15 @@ section {
 canvas {
     border: 1px solid lightgrey;
     border-radius: 10px;
-    width: 700px;
+    width: 700px !important;
     height: auto;
     padding: 30px 10px;
     background: linear-gradient(to bottom right, rgb(237, 243, 250), rgb(255, 255, 255));
+}
+
+@media only screen and (max-width : 1000px) {
+    canvas {
+        width: 90% !important;
+    }
+
 }
