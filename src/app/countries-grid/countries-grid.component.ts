@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./countries-grid.component.css']
 })
 export class CountriesGridComponent implements OnInit {
-  displayedColumns = ['flag', 'name', 'code', 'capital', 'region', 'subregion', 'population', 'area', 'action'];
+  smallBaseColumns = ['flag', 'name', 'subregion', 'action'];
+  baseColumns = ['flag', 'name', 'code', 'capital', 'region', 'subregion', 'population', 'area', 'action'];
+  displayedColumns = this.baseColumns;
+  windowsWidth: number = 1000;
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -18,7 +21,7 @@ export class CountriesGridComponent implements OnInit {
 
   ngOnInit() {
     this.getCountries();
-
+    this.displayedColumns = (window.innerWidth <= this.windowsWidth) ? this.smallBaseColumns : this.baseColumns;
   }
 
   getCountries(): void {
@@ -46,5 +49,9 @@ export class CountriesGridComponent implements OnInit {
   redirectTo(uri: string) {
     this.router.navigateByUrl('/DummyComponent', { skipLocationChange: true }).then(() =>
       this.router.navigate([uri]));
+  }
+
+  onResize(event){
+    this.displayedColumns = (event.target.innerWidth <= this.windowsWidth) ? this.smallBaseColumns : this.baseColumns;
   }
 }

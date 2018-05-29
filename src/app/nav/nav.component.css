@@ -23,6 +23,10 @@ li:hover {
     cursor: pointer;
 }
 
+li:focus {
+    outline: none;
+}
+
 @media only screen and (max-width : 640px) {
     nav {
         display: grid;

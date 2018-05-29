@@ -121,3 +121,19 @@ td {
     display: flex; 
     align-content: center;
 }
+
+@media only screen and (max-width : 640px) {
+    .main, .details-row {
+        display: block;
+    }  
+    
+    .desc {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width : 1050px) {
+    .main {
+        display: block;
+    }      
+}
