@@ -1,0 +1,17 @@
+<form class="select-form">
+  <mat-form-field appearance="outline" class="select-full-width">
+    <mat-label>Enter country name</mat-label>
+    <input matInput aria-label="Country" [matAutocomplete]="auto" [formControl]="countryCtrl" [(ngModel)]="value">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let country of filteredCountry | async" [value]="country.name" (click)="goToDetails(country.alpha3Code)">
+        <div class="flag">
+          <img aria-hidden src="{{country.flag}}" />
+        </div>
+        <span>{{ country.name }}</span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

@@ -1,42 +1,85 @@
-<div *ngIf="country">
-
-  <h1>
-    <img id="flag" [src]="country.flag" />{{country.name}}</h1>
-  <section>
-    <p>Capital: {{country.capital}}</p>
-    <p>Area: {{country.area}}</p>
-    <p>Population: {{country.population}}</p>
-    <p>Region: {{country.region}}</p>
-    <p>Subregion: {{country.subregion}}</p>
+<mat-progress-bar mode="indeterminate" *ngIf="!country"></mat-progress-bar>
+<div class="container" *ngIf="country">
+  <h2 class="header">
+    <img class="flag" [src]="country.flag" />
+    <span class="countryname">{{country.name}}</span>
+    <span class="countrynativename" *ngIf="country.name !== country.nativeName">( {{country.nativeName}} )</span>
+  </h2>
+  
+  <div class="details-row">
+  <section class="desc" *ngIf="desc">
+      <div>{{desc.extract}}
+        <br/>
+        <a [href]="desc.content_urls.desktop.page" target="blank">Read more on Wikipedia</a>
+      </div>
   </section>
 
-  <section *ngIf="borderCountries.length > 0">
-    <h1>Border with</h1>
-    <ul>
-      <li *ngFor="let country of borderCountries; let i = index" (click)="goToDetails(country.alpha3Code)" [title]="country.alpha3Code">
-        <img id="borderflag" [src]="country.flag">
-        <span>{{country.name}}</span>
-      </li>
-    </ul>
-  </section>
 
-  <country-map [lat]="country.latlng[0]" [lng]="country.latlng[1]"></country-map>
+    <section *ngIf="borderCountries.length > 0">
+      <h3>Border with</h3>
+      <ul class="list">
+        <li class="border-with" *ngFor="let country of borderCountries; let i = index" (click)="goToDetails(country.alpha3Code)"
+          [title]="country.alpha3Code">
+          <img class="borderflag" [src]="country.flag">
+          <span>{{country.name}}</span>
+        </li>
+      </ul>
+    </section>
+  </div> 
+  
+    <section *ngIf="country.latlng[0]">
+      <country-map [lat]="country.latlng[0]" [lng]="country.latlng[1]"></country-map>
+    </section>
 
-  <section *ngIf="desc">
-    <h1>Description</h1>
-    <p>{{desc.extract}}
-      <a [href]="desc.content_urls.desktop.page" target="blank">Read more on Wikiedia</a>
-    </p>
-  </section>
+
+  <section class="main">
+    <table>
+      <tbody>
+        <tr><th>Capital</th><td>{{country.capital}}</td></tr>
+        <tr><th>Area</th><td>{{country.area}} km<sup>2</sup></td></tr>
+        <tr><th>Population</th><td>{{country.population}}</td></tr>
+        <tr><th>Region</th><td><span class="link-to-region" (click)="goToCountryRegion(country)">{{country.region}}</span></td></tr>
+        <tr><th>Subregion</th><td>{{country.subregion}}</td></tr>
+        <tr><th>Gini</th><td>{{country.gini}}</td></tr>
+      </tbody>
+    </table>
+    <table>
+        <tbody>
+        <tr><th>Internet Domain</th><td>{{country.topLevelDomain}}</td></tr>
+        <tr><th>Code</th><td>{{country.alpha3Code}}</td></tr>
+        <tr><th>Calling Code</th><td><span *ngIf="country.callingCodes">+</span>{{country.callingCodes}}</td></tr>
+        <tr><th>Numeric Code</th><td>{{country.numericCode}}</td></tr>
+        <tr *ngIf="country.latlng[0]"><th>Coordinates</th><td>{{getLatLngNormalize(country.latlng)}}</td></tr>
+        <tr><th>Demonym</th><td>{{country.demonym}}</td></tr>
+        <tr><th>Cioc</th><td>{{country.cioc}}</td></tr>
+      </tbody>
+    </table>
+    <table>
+      <tbody>
+        <tr><th>Alternative Names</th><td><ul class="list" *ngFor="let name of country.altSpellings"><li>{{name}}</li></ul></td></tr>
+        <tr><th>TimeZone</th><td><ul class="list" *ngFor="let time of country.timezones"><li>{{time}}</li></ul></td></tr>
+        <tr><th>Regional Blocs</th><td><ul class="list" *ngFor="let rblocs of country.regionalBlocs"><li>{{rblocs.name}} ({{rblocs.acronym}})</li></ul></td></tr>
+        <tr><th>Languages</th><td><ul class="list" *ngFor="let lang of country.languages"><li>{{lang.name}} ({{lang.nativeName}})</li></ul></td></tr>
+        <tr><th>Currencies</th><td><ul class="list" *ngFor="let curr of country.currencies"><li>{{curr.name}} ({{curr.symbol}}, {{curr.code}})</li></ul></td></tr>
+      </tbody>
+    </table>
+</section>
+
+
+
+  
+
+
 
   <section *ngIf="wikiImages">
-    <h1>Images</h1>
-    <ul>
-      <li *ngFor="let image of wikiImages">
-        <img [title]="image.titles.display" [src]="image.thumbnail.source" [width]="image.thumbnail.width" [height]="image.thumbnail.height"
-        />
-        <span *ngIf="image.caption">{{image.caption.text}}</span>
-      </li>
-    </ul>
+    <h3>Images </h3>
+    <div class="gallery">
+      <mat-card class="gallery-card" *ngFor="let image of wikiImages">
+        <img mat-card-image [title]="image.titles.display" [src]="image.thumbnail.source" />
+        <mat-card-content *ngIf="image.caption">
+          <p>{{image.caption.text}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </section>
 </div>

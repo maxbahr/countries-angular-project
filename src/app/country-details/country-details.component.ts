@@ -16,6 +16,7 @@ export class CountryDetailsComponent implements OnInit {
   desc: any;
   media: WikipediaMedia;
   wikiImages: Item[];
+  latlng: string;
 
   constructor(private countriesService: CountriesService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(
@@ -71,5 +72,40 @@ export class CountryDetailsComponent implements OnInit {
   redirectTo(uri: string) {
     this.router.navigateByUrl('/DummyComponent', { skipLocationChange: true }).then(() =>
       this.router.navigate([uri]));
+  }
+
+  goToCountryRegion(country: Country): void {
+    let region = country.region;
+    if (region.toLowerCase() === 'americas') {
+      let subregion = country.subregion;
+      if (subregion.toLowerCase().startsWith('south')) {
+        this.redirectTo('/region/south-america');
+      } else {
+        this.redirectTo('/region/northen-america');
+      }
+    } else {
+      this.redirectTo('/region/' + region.toLocaleLowerCase());
+    }
+  }
+
+  getLatLngNormalize(coord: number[]): string {
+    let lat: number = coord[0];
+    let lng: number = coord[1];
+    let latStr: string;
+    let lngStr: string;
+
+    if (lat < 0) {
+      latStr = lat * -1 + String.fromCharCode(176) + "S";
+    } else {
+      latStr = lat + String.fromCharCode(176) + "N";
+    }
+
+    if (lng < 0) {
+      lngStr = lng * -1 + String.fromCharCode(176) + "W";
+    } else {
+      lngStr = lng + String.fromCharCode(176)+ "E";
+    }
+
+    return latStr + " " + lngStr;
   }
 }

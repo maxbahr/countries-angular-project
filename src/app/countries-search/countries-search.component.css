@@ -1,0 +1,21 @@
+.world-map-container {    
+    background: rgba(128, 167, 226, 0.836); 
+    background: linear-gradient(white, rgba(192, 212, 243, 0.836), rgba(173, 216, 230, 0.863), white);
+    max-height: 456px;
+}
+
+.world-map {
+    max-width: 900px;
+    max-height: 456px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+.search-container {
+    padding: 0px 30px;
+}
+
+h4 {
+    margin-top: 40px;
+    text-shadow: 3px 3px 7px #9ca9ac;
+}

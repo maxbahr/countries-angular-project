@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { } from '@types/googlemaps';
 
 @Component({
   selector: 'country-map',
@@ -6,14 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./country-map.component.css']
 })
 export class CountryMapComponent implements OnInit {
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
+    
   @Input() lat: number;
   @Input() lng: number;
-  bounds: any;
 
   constructor() { }
 
   ngOnInit() {
-    // this.bounds  = new LatLngBounds();
+    const mapProp = {
+      center: new google.maps.LatLng(this.lat, this.lng),
+      zoom: 4,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
   }
-
 }

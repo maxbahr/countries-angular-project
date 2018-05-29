@@ -1,16 +1,28 @@
 ul {
     list-style: none;
-    padding: 10px;
-    margin: 0px;
-    border-bottom: 1px solid gray;
+    background: linear-gradient( rgba(192, 212, 243, 0.836), white);
+    display: flex;
+    align-items: center;
+    height: 65px;
+    margin-bottom: 0px !important;
 }
 
-ul li {
-    display: inline-block;
-    margin-left: 30px;
+li {
+    padding-right: 30px;
+    color: rgb(139, 139, 139);
+    font-size: 12pt;    
+    text-transform: uppercase;
 }
 
 .active {
-    color: goldenrod;
-    
+    color:black;
+}
+
+li:hover {
+    color: black;
+    cursor: pointer;
+}
+
+li:focus {
+    outline: none;
 }

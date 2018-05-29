@@ -1,4 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-agm-map {
-    height: 300px;
-  }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900&subset=latin-ext');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-image: url(./assets/img/bg.jpg);
+  font-family: 'Lato', sans-serif !important;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 99;
+  font-size: 48px;
+  border: none;
+  outline: none;
+  color: rgb(134, 133, 133);
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  color: rgb(52, 93, 206);
+}   

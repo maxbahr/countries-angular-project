@@ -1,0 +1,17 @@
+.flag-box {    
+    margin: auto auto;    
+    max-width: 1000px;
+    display: table;
+    padding: 25px;
+}
+
+.flag {
+    margin: 10px 10px;
+    float: left;
+    /* width: 75px;
+    height: 50px; */
+    cursor: pointer;
+    object-fit: cover;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.432), 0 8px 22px 0 rgba(0, 0, 0, 0.4);
+}
+

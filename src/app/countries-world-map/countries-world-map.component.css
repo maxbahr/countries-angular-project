@@ -1,0 +1,75 @@
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+#svg-border {
+    fill: none;
+}
+
+#ocean {
+    fill: none;
+}
+
+#northen-america {
+    fill: #00cc00;
+}
+
+#northen-america:hover {
+    fill: #145e14;
+    cursor: pointer;
+}
+
+#asia {
+    fill: #f33e01;
+}
+
+#asia:hover {
+    fill: rgb(94, 32, 23);
+    cursor: pointer;
+}
+
+#europa {
+    fill: #c10000;
+}
+
+#europa:hover {
+    fill: #5e0202;
+    cursor: pointer;
+}
+
+#africa {
+    fill: #fed52e;
+}
+
+#africa:hover {
+    fill: #695812;
+    cursor: pointer;
+}
+
+#australia {
+    fill: #c04080;
+}
+
+#australia:hover {
+    fill: #6d2549;
+    cursor: pointer;
+}
+
+#south-america {
+    fill: #008000;
+}
+
+#south-america:hover {
+    fill: #093d09;
+    cursor: pointer;
+}
+
+#antarctica {
+    fill: #0000ff;
+}
+
+#antarctica:hover {
+    fill: #00007a;
+    cursor: pointer;
+}

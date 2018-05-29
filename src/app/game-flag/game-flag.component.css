@@ -1,0 +1,131 @@
+.container > div {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.game-container {
+    width: 700px;
+    height: 400px;
+    max-width: 700px;
+    max-height: 700px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to bottom right, rgb(237, 243, 250), rgb(255, 255, 255));
+    position: relative;
+}
+
+.game-name {
+    position: absolute;
+    top: 10px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.game {
+    margin-top: 10px;
+}
+
+.flag {
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.btn {
+    margin-right: 10px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.btn-answer {
+    background: linear-gradient(to bottom right, rgb(189, 239, 248), rgb(166, 222, 250), );
+}
+
+.btn-easy {
+    background: linear-gradient(to bottom right, rgb(14, 134, 14), lightgreen);
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.btn-normal {
+    background: linear-gradient(to bottom right, rgb(185, 197, 14), rgb(252, 248, 3));
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.btn-hard {
+    background: linear-gradient(to bottom right, rgb(173, 59, 59), rgb(252, 3, 3));
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.game-result {
+    display: inline-flex;
+    list-style: none;
+}
+
+.game-result li {
+    margin-top: 20px;
+    margin-right: 50px;
+    font-size: 12pt;    
+    text-transform: uppercase;
+    text-shadow: 0px 1px black, 1px 0px black, 0px 1px black, 0px 1px black;
+}
+
+.game-result li i {
+    font-size: 14pt;    
+}
+
+.level {
+    color: yellow;    
+    text-transform: uppercase;
+}
+
+.correct {
+    color: rgb(0, 163, 0);
+}
+
+.incorrect {
+    color: rgb(230, 29, 29);
+}
+
+div.level {
+    color: yellow;    
+    text-shadow: 0px 1px black, 1px 0px black, 0px 1px black, 0px 1px black;
+    font-size: 25pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.num-result {
+    font-size: 22pt;
+}
+
+.btn-redo:hover {
+    color: yellow;
+    text-shadow: 0px 1px black, 1px 0px black, 0px 1px black, 0px 1px black;
+}
+
+.game-result-text h2 {
+    text-shadow: 0px 1px black, 1px 0px black, 0px 1px black, 0px 1px black;
+    text-transform: uppercase;
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+.game-over h2 {
+    color: red;
+}
+
+.you-won h2 {
+    color: yellow;
+}

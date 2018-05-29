@@ -4,26 +4,40 @@ import { CountriesService } from '../countries.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'country-list',
-  templateUrl: './country-list.component.html',
-  styleUrls: ['./country-list.component.css']
+  selector: 'country-flags',
+  templateUrl: './country-flag.component.html',
+  styleUrls: ['./country-flag.component.css']
 })
-export class CountryListComponent implements OnInit {
+export class CountryFlagsComponent implements OnInit {
   countries: Country[] = null;
+
+  min: number = 75;
+  max: number = 150;
+  step: number = 25;
+  value: number = 50;
 
   constructor(private countriesService: CountriesService, private router: Router) { }
 
   ngOnInit() {
-    console.log("Country init");
     this.getCountries();
   }
 
   getCountries(): void {
     this.countriesService.getCountries()
-      .subscribe(countries => this.countries = countries);
+      .subscribe(countries => {
+        this.countries = countries;
+      });
   }
 
   goToDetails(code: string) {
     this.router.navigateByUrl('/country/' + code.toLocaleLowerCase());
+  }
+
+  formatValueSlider(value: number | null) {
+    if (!value) {
+      return 0 + 'px';
+    }
+
+    return value + 'px';
   }
 }

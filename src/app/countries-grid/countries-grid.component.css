@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+}
+
+.flag {
+    width: 25px;
+    border: 1px solid grey;
+}
+
+i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.grid-header {
+    padding-left: 30px;
+}

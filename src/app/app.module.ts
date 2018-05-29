@@ -1,49 +1,68 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AgmCoreModule } from '@agm/core';
-
-import { RouterModule, Routes} from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
-import { CountryListComponent } from './country-list/country-list.component';
+import { CountriesSearchComponent } from './countries-search/countries-search.component';
+import { CountryFlagsComponent } from './country-flag/country-flag.component';
+import { CountriesGridComponent } from './countries-grid/countries-grid.component';
+import { CountryCarouselComponent } from './country-carousel/country-carousel.component';
+import { CountriesStatisticsComponent } from './countries-statistics/countries-statistics.component';
 import { CountryMapComponent } from './country-map/country-map.component';
 import { CountryDetailsComponent } from './country-details/country-details.component';
-import { ContactComponent } from './contact/contact.component';
+import { CountriesRegionComponent } from './countries-region/countries-region.component';
+import { CountrySelectComponent } from './country-select/country-select.component';
+import { GameFlagComponent } from './game-flag/game-flag.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavComponent } from './nav/nav.component';
 import { CountriesService } from './countries.service';
+import { MaterialAppModule } from './material.module';
+import { CountriesWorldMapComponent } from './countries-world-map/countries-world-map.component';
 
 
-const routes: Routes  = [
-  {path: '', component: CountryListComponent},
-  {path: 'country/:code', component: CountryDetailsComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: '**', component: PageNotFoundComponent}
+const routes: Routes = [
+  { path: '', component: CountriesSearchComponent },
+  { path: 'flags', component: CountryFlagsComponent },
+  { path: 'grid', component: CountriesGridComponent },
+  { path: 'statistics', component: CountriesStatisticsComponent },
+  { path: 'country/:code', component: CountryDetailsComponent },
+  { path: 'region/:region', component: CountriesRegionComponent },
+  { path: 'game', component: GameFlagComponent },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
   declarations: [
-    AppComponent,        
-    CountryListComponent,
+    AppComponent,
+    CountryFlagsComponent,
     CountryDetailsComponent,
-    ContactComponent,
+    GameFlagComponent,
     CountryMapComponent,
+    CountriesWorldMapComponent,
+    CountriesSearchComponent,
+    CountriesGridComponent,
+    CountriesStatisticsComponent,
+    CountryCarouselComponent,
+    CountriesRegionComponent,
+    CountrySelectComponent,
     PageNotFoundComponent,
     NavComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBwkUM3EcnCz9GAGMNpz95HHG2OyCNC46o'
-    }),
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    MaterialAppModule,
+    NgbModule.forRoot()
   ],
-  providers: [ CountriesService],
+  providers: [CountriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

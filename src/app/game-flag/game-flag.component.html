@@ -1,0 +1,55 @@
+<div class="container">
+  <div>
+    <div class="game-container">
+        <h2 class="game-name">Whose flag is it?</h2>
+      <div *ngIf="!startGame">
+        <h5>Start game by selecting level</h5>
+        <button class="btn btn-easy" mat-stroked-button (click)="setDifficulty([5,3])">Easy</button>
+        <button class="btn btn-normal" mat-stroked-button (click)="setDifficulty([6,5])">Normal</button>
+        <button class="btn btn-hard" mat-stroked-button (click)="setDifficulty([5,8])">Hard</button>
+      </div>
+      <div *ngIf="startGame">
+          <mat-progress-bar mode="indeterminate" *ngIf="!country"></mat-progress-bar>
+        
+        <div *ngIf="country">
+          <div class="game">              
+            
+            <div class="game-result-text game-over" *ngIf="gameOver">
+              <h2>Game Over</h2>
+              <i style="cursor: pointer;" (click)="restartGame()" class="fas fa-redo fa-3x btn-redo" matTooltip="Try again"></i>
+            </div>
+            
+            <div class="game-result-text you-won" *ngIf="youWon">
+              <h2>You won!</h2>
+              <i style="cursor: pointer;" (click)="restartGame()" class="fas fa-redo fa-3x btn-redo" matTooltip="Try again"></i>
+            </div>
+            
+            <div class="level" *ngIf="levelCompleted">Level Completed
+              <h1>{{level}}</h1>
+            </div>
+            
+            <div *ngIf="!levelCompleted">
+              <ul class="game-result">
+                <li class="level">level: <i class="num-result">{{level}} / {{numLevels}}</i></li>
+                <li class="correct">
+                  <i class="far fa-thumbs-up"></i> good: <i class="num-result">{{correct}}</i></li>
+                <li class="incorrect">
+                  <i class="far fa-thumbs-down"></i> wrong: <i class="num-result">{{incorrect}}</i></li>
+                </ul>
+
+              <div class="game-flags" *ngIf="!gameOver && !youWon">
+                <img class="flag" [src]="country.flag" [height]="height" />
+                <div class="buttons" *ngIf="answers">
+                  <button class="btn btn-answer" mat-raised-button (click)="checkAnswer(answers[0])">{{answers[0].name}}</button>
+                  <button class="btn btn-answer" mat-raised-button (click)="checkAnswer(answers[1])">{{answers[1].name}}</button>
+                  <button class="btn btn-answer" mat-raised-button (click)="checkAnswer(answers[2])">{{answers[2].name}}</button>
+                  <button class="btn btn-answer" mat-raised-button (click)="checkAnswer(answers[3])">{{answers[3].name}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

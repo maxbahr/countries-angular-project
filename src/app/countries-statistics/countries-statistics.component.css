@@ -1,0 +1,27 @@
+.container {
+    padding-top: 25px;
+}
+
+h3 { 
+    margin: auto auto;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.75rem;
+}
+
+section {
+    display: flex;
+    align-content: center;  
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+canvas {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    width: 700px;
+    height: auto;
+    padding: 30px 10px;
+    background: linear-gradient(to bottom right, rgb(237, 243, 250), rgb(255, 255, 255));
+}

@@ -1,0 +1,32 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!chartArea && chartNeighborhood"></mat-progress-bar>
+<div class="container">
+  <h3>Statistics</h3>
+  <section>    
+    <div *ngIf="chartArea">
+      <h4>Top 10 biggest countries</h4>
+      <canvas id="canvas-area">{{ chartArea }}</canvas>
+    </div>
+  </section>
+
+  <section>  
+    <div *ngIf="chartPopulation">
+      <h4>Top 10 most populated countries</h4>
+      <canvas id="canvas-population">{{ chartPopulation }}</canvas>
+    </div>
+  </section>
+
+  <section>    
+    <div *ngIf="chartLessPopulation">
+      <h4>Top 10 less populated countries</h4>
+      <canvas id="canvas-less-population">{{ chartLessPopulation }}</canvas>
+    </div>
+  </section>
+
+  <section>    
+    <div *ngIf="chartNeighborhood">
+      <h4>Top 10 countries with most number of neighbours</h4>
+      <canvas id="canvas-neighborhood">{{ chartNeighborhood }}</canvas>
+    </div>
+  </section>
+
+</div>

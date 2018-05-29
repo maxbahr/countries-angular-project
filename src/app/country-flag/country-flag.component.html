@@ -1,0 +1,21 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!countries"></mat-progress-bar>
+<div class="container">    
+  <div class='flag-box' *ngIf="countries !== null">
+    <h3>National flag</h3>
+    <p>A national flag is a flag that represents and symbolizes a country. The national flag is flown by the government of a
+      country, but can usually also be flown by citizens of the country. A national flag is designed with specific meanings
+      for its colors and symbols. The colors of the national flag may be worn by the people of a nation to show their patriotism,
+      or related paraphernalia that show the symbols or colors of the flag may be used for those purposes.&nbsp;
+      <a matTooltip="Read more on Wikipedia" href="https://en.wikipedia.org/wiki/National_flag" target="_blank">
+        <i class="fab fa-wikipedia-w"></i>
+      </a>
+    </p>
+    <div style="display: block">Resize flags height:
+      <mat-slider style="width: 140px" [displayWith]="formatValueSlider" max="175" min="25" step="25" thumbLabel="true" [(ngModel)]="value"></mat-slider>
+    </div>
+    <div class="flags-container">
+      <img class="flag" [width]="value + value/2" [height]="value" *ngFor="let country of countries; let i = index" [src]="country.flag"
+        [alt]="country.name" (click)="goToDetails(country.alpha3Code)" [matTooltip]="country.name" matTooltipPosition="below">
+    </div>
+  </div>
+</div>
