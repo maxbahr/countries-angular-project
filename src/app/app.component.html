@@ -1,9 +1,19 @@
 <div class="container">
-  <country-nav></country-nav>
+  <button type="button" class="btn btn-outline-primary small-menu" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapse">
+    <i class="fas fa-bars"></i>
+  </button>    
+  <div id="collapse" [ngbCollapse]="isCollapsed">
+    <country-nav (isClicked)="changeCollapse($event)"></country-nav>
+  </div>
+  <div id="big-menu">
+    <country-nav></country-nav>
+  </div>
   <router-outlet></router-outlet>
   <footer>
     <p>
-         Maksymilian Bahr <i class="fab fa-angular fa-3x"></i> Wroclaw 2018
+      Maksymilian Bahr
+      <i class="fab fa-angular fa-3x"></i> Wroclaw 2018
     </p>
   </footer>
 </div>

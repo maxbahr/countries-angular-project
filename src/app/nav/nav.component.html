@@ -1,9 +1,9 @@
 <nav>
   <ul>
-    <li routerLinkActive="active" routerLink='/' [routerLinkActiveOptions]="{exact: true}">Home</li>
-    <li routerLinkActive="active" routerLink='/flags'>Flags</li>
-    <li routerLinkActive="active" routerLink='/grid'>Countries</li>
-    <li routerLinkActive="active" routerLink='/statistics'>Statistics</li>
-    <li routerLinkActive="active" routerLink='/game'>Game</li>
+    <li routerLinkActive="active" (click)="clicked()" routerLink='/' [routerLinkActiveOptions]="{exact: true}">Home</li>
+    <li routerLinkActive="active" (click)="clicked()" routerLink='/flags'>Flags</li>
+    <li routerLinkActive="active" (click)="clicked()" routerLink='/grid'>Countries</li>
+    <li routerLinkActive="active" (click)="clicked()" routerLink='/statistics'>Statistics</li>
+    <li routerLinkActive="active" (click)="clicked()" routerLink='/game'>Game</li>
   </ul>
 </nav>

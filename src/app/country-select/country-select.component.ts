@@ -15,7 +15,6 @@ export class CountrySelectComponent implements OnInit {
   countryCtrl: FormControl;
   filteredCountry: Observable<any[]>;
   countries: Country[];
-  value: string;
 
   constructor(private countriesService: CountriesService, private router: Router) {
     this.countryCtrl = new FormControl();
@@ -38,6 +37,10 @@ export class CountrySelectComponent implements OnInit {
       startWith(''),
       map(countryName => countryName ? this.filterCountry(countryName) : this.countries.slice())
     )
+  }
+
+  resetForm(): void {
+    this.countryCtrl.setValue('');
   }
 
   filterCountry(name: string): Country[] {

@@ -1,8 +1,8 @@
 <form class="select-form">
   <mat-form-field appearance="outline" class="select-full-width">
     <mat-label>Enter country name</mat-label>
-    <input matInput aria-label="Country" [matAutocomplete]="auto" [formControl]="countryCtrl" [(ngModel)]="value">
-    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <input matInput aria-label="Country" [matAutocomplete]="auto" [formControl]="countryCtrl">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="resetForm()">
       <mat-icon>close</mat-icon>
     </button>
     <mat-autocomplete #auto="matAutocomplete">

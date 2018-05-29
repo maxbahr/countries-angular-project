@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  heading = "Countries";
+  isCollapsed: boolean = true;  
+
+  changeCollapse(isClicked: boolean): void {
+    this.isCollapsed = isClicked;
+  }
 }

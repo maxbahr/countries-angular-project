@@ -23,6 +23,19 @@ li:hover {
     cursor: pointer;
 }
 
-li:focus {
-    outline: none;
+@media only screen and (max-width : 640px) {
+    nav {
+        display: grid;
+        margin: 0px 0px;        
+    }
+
+    ul {
+        background: none;
+        display: block;
+        height: auto;
+    }
+
+    li {
+        font-size: 11pt;
+    }
 }
