@@ -4,7 +4,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -20,7 +19,6 @@ export const modules = [
     MatTooltipModule,
     MatButtonModule,
     MatAutocompleteModule,
-    MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatTableModule,

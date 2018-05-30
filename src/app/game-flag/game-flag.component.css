@@ -21,15 +21,6 @@
     position: relative;
 }
 
-.game-name {
-    position: absolute;
-    top: 10px;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
-}
-
 .game {
     margin-top: 10px;
 }
@@ -128,4 +119,11 @@ div.level {
 
 .you-won h2 {
     color: yellow;
+}
+
+@media only screen and (max-width : 640px) {
+    .game-container {
+        background: none;
+        border: none;
+    }
 }
